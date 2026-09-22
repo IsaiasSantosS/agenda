@@ -4,22 +4,23 @@ import java.time.LocalDate;
 
 import com.estudo.agenda.shared.VOs.CPF;
 import com.estudo.agenda.shared.VOs.Email;
+import lombok.Getter;
 
+@Getter
 public class Pessoa {
-    private PessoaId id;
-    private String nome;
-    private Email email;
-    private String telefone;
-    private CPF cpf;
-    private LocalDate dataNascimento;
+    private final PessoaId id;
+    private final String nome;
+    private final Email email;
+    private final String telefone;
+    private final CPF cpf;
+    private final LocalDate dataNascimento;
 
     public static Pessoa criar(String nome, Email email, String telefone, CPF cpf, LocalDate dataNascimento) {
         return new Pessoa(PessoaId.gerarNovo(), nome, email, telefone, cpf, dataNascimento);
     }
 
     public static Pessoa reconstruir(PessoaId id, String nome, Email email, String telefone, CPF cpf, LocalDate dataNascimento) {
-        Pessoa pessoa = new Pessoa(id, nome, email, telefone, cpf, dataNascimento);
-        return pessoa;
+        return new Pessoa(id, nome, email, telefone, cpf, dataNascimento);
     }
 
     private Pessoa(PessoaId id, String nome, Email email, String telefone, CPF cpf, LocalDate dataNascimento) {
@@ -31,27 +32,4 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public PessoaId getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Email getEmail() {
-        return email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public CPF getCpf() {
-        return cpf;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
 }
