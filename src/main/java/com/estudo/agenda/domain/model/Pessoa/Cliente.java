@@ -1,5 +1,6 @@
 package com.estudo.agenda.domain.model.Pessoa;
 
+import java.util.UUID;
 
 public class Cliente {
     private ClienteId id;
@@ -36,6 +37,10 @@ public class Cliente {
 
     public ClienteId getId() {
         return id;
+    }
+
+     public UUID getIdentificadorUUID() {
+        return id.identificador();
     }
 
     public PessoaId getPessoaId() {

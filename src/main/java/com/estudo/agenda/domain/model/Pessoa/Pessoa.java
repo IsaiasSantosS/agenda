@@ -1,6 +1,7 @@
 package com.estudo.agenda.domain.model.Pessoa;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.estudo.agenda.shared.VOs.CPF;
 import com.estudo.agenda.shared.VOs.Email;
@@ -30,6 +31,14 @@ public class Pessoa {
         this.telefone = telefone;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getEmailString(){
+        return  email.getEmail();
+    }
+
+    public UUID getIdentificadorUUID(){
+        return  id.identificador();
     }
 
 }

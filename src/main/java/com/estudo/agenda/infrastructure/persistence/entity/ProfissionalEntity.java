@@ -13,7 +13,7 @@ import lombok.Setter;
 @Table (name ="tb_profissional")
 @Getter 
 @Setter 
-public class Profissional
+public class ProfissionalEntity
 {
 
     @Id 

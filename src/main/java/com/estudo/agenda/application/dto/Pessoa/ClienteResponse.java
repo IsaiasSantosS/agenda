@@ -14,10 +14,10 @@ public record ClienteResponse(
 ) {
     public static ClienteResponse fromDomain(Cliente cliente, Pessoa pessoa) {
         return new ClienteResponse(
-                cliente.getId().identificador(),
-                pessoa.getId().identificador(),
+                cliente.getIdentificadorUUID(),
+                pessoa.getIdentificadorUUID(),
                 pessoa.getNome(),
-                pessoa.getEmail().getEmail(),
+                pessoa.getEmailString(),
                 cliente.getStatus().name()
         );
     }

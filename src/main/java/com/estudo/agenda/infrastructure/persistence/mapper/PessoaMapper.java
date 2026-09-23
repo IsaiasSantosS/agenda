@@ -18,7 +18,7 @@ public class PessoaMapper {
     }
 
     public static PessoaEntity toEntity(Pessoa pessoa) {
-        return new PessoaEntity(pessoa.getId().identificador(),
+        return new PessoaEntity(pessoa.getIdentificadorUUID(),
          pessoa.getNome(),
           pessoa.getEmail(),
           pessoa.getTelefone(),
