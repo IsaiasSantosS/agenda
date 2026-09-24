@@ -8,8 +8,6 @@ import com.estudo.agenda.domain.model.Pessoa.ClienteId;
 import com.estudo.agenda.domain.model.Pessoa.Pessoa;
 import com.estudo.agenda.domain.repository.ClienteRepository;
 import com.estudo.agenda.domain.repository.PessoaRepository;
-import com.estudo.agenda.infrastructure.persistence.entity.ClienteEntity;
-import com.estudo.agenda.infrastructure.persistence.mapper.ClienteMapper;
 
 @Service 
 public class BuscarClienteUseCase {
