@@ -10,7 +10,8 @@ public record ClienteResponse(
         UUID pessoaId,
         String nome,
         String email,
-        String status
+        String status,
+        Integer pontosFidelidade
 ) {
     public static ClienteResponse fromDomain(Cliente cliente, Pessoa pessoa) {
         return new ClienteResponse(
@@ -18,7 +19,8 @@ public record ClienteResponse(
                 pessoa.getIdentificadorUUID(),
                 pessoa.getNome(),
                 pessoa.getEmailString(),
-                cliente.getStatus().name()
+                cliente.getStatus().name(),
+                cliente.getPontosFidelidade()
         );
     }
 }

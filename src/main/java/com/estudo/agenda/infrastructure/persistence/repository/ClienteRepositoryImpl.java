@@ -23,19 +23,21 @@ public class ClienteRepositoryImpl implements ClienteRepository {
     }
 
     @Override 
-    public Optional<ClienteEntity> buscarPorId(UUID id) {
-        return clienteJpaRepository.findById(id);
+    public Optional<Cliente> buscarPorId(UUID id) {
+        return clienteJpaRepository.findById(id).map(ClienteMapper::toDomain);
     }
     
     @Override
-    public ClienteEntity salvar(Cliente cliente) {
+    public Cliente salvar(Cliente cliente) {
         ClienteEntity clienteEntity = ClienteMapper.toEntity(cliente);
-        return clienteJpaRepository.save(clienteEntity);
+        clienteEntity = clienteJpaRepository.save(clienteEntity);
+
+        return cliente;
     }
 
     @Override 
-    public Page<ClienteEntity> buscarTodos(Pageable pageable) {
-        return clienteJpaRepository.findAll(pageable);
+    public Page<Cliente> buscarTodos(Pageable pageable) {
+        return clienteJpaRepository.findAll(pageable).map(ClienteMapper::toDomain);
     }
 
     @Override

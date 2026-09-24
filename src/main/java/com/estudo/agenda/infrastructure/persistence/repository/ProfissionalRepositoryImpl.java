@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import com.estudo.agenda.domain.model.Pessoa.Pessoa;
 import com.estudo.agenda.domain.model.Pessoa.PessoaId;
 import com.estudo.agenda.domain.model.Pessoa.Profissional;
 import com.estudo.agenda.domain.repository.ProfissionalRepository;
@@ -24,19 +23,19 @@ public class ProfissionalRepositoryImpl implements ProfissionalRepository {
     }
 
     @Override 
-    public Optional<ProfissionalEntity> buscarPorId(UUID id) {
-        return jpaRepository.findById(id);
+    public Optional<Profissional> buscarPorId(UUID id) {
+        return jpaRepository.findById(id).map(ProfissionalMapper::toDomain);
     }
     
     @Override
-    public ProfissionalEntity salvar(Profissional profissional) {
+    public Profissional salvar(Profissional profissional) {
         ProfissionalEntity ProfissionalEntity = ProfissionalMapper.toEntity(profissional);
-        return jpaRepository.save(ProfissionalEntity);
+        return ProfissionalMapper.toDomain(jpaRepository.save(ProfissionalEntity));
     }
 
     @Override 
-    public Page<ProfissionalEntity> buscarTodos(Pageable pageable) {
-        return jpaRepository.findAll(pageable);
+    public Page<Profissional> buscarTodos(Pageable pageable) {
+        return jpaRepository.findAll(pageable).map(ProfissionalMapper::toDomain);
     }
 
     @Override

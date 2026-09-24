@@ -1,4 +1,4 @@
-package com.estudo.agenda.api.rest;
+package com.estudo.agenda.api;
 
 import java.net.URI;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estudo.agenda.application.dto.Pessoa.ProfissionalCommand;
 import com.estudo.agenda.application.dto.Pessoa.ProfissionalResponse;
-import com.estudo.agenda.application.usecase.CriarProfissionalUseCase;
+import com.estudo.agenda.application.usecase.profissional.CriarProfissionalUseCase;
 
 import jakarta.validation.Valid;
 

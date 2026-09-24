@@ -34,8 +34,8 @@ public class PessoaRepositoryImpl implements PessoaRepository {
     }
 
     @Override 
-    public Page<PessoaEntity> buscarTodos(Pageable pageable) {
-        return pessoaJpaRepository.findAll(pageable);
+    public Page<Pessoa> buscarTodos(Pageable pageable) {
+        return pessoaJpaRepository.findAll(pageable).map(PessoaMapper::toDomain);
     }
 
     @Override

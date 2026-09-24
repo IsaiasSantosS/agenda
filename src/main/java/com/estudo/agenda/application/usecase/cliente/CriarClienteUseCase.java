@@ -1,4 +1,4 @@
-package com.estudo.agenda.application.usecase;
+package com.estudo.agenda.application.usecase.cliente;
 
 import com.estudo.agenda.domain.model.Pessoa.Cliente;
 import org.springframework.stereotype.Service;

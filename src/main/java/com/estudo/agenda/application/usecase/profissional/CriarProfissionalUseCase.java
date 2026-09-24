@@ -1,4 +1,4 @@
-package com.estudo.agenda.application.usecase;
+package com.estudo.agenda.application.usecase.profissional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
