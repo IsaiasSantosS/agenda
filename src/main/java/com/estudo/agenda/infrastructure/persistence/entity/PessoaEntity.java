@@ -42,7 +42,7 @@ public class PessoaEntity {
     @Column (nullable = false, length = 10)
     private LocalDate dataNascimento;
 
-    @Column (nullable = false)
+    @Column (nullable = true)
     private LocalDateTime dataCadastro;
 
     public PessoaEntity(UUID id, String nome, Email email, String telefone, CPF cpf, LocalDate dataNascimento){
