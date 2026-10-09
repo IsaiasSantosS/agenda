@@ -14,4 +14,5 @@ public interface PessoaRepository {
     Optional<Pessoa> buscarPorCpf(CPF cpf);
     Pessoa salvar(Pessoa pessoa);
     Page<Pessoa> buscarTodos(Pageable pageable);
+    void deletar(Pessoa pessoa);
 }

@@ -43,4 +43,9 @@ public class PessoaRepositoryImpl implements PessoaRepository {
         return pessoaJpaRepository.findByCpf(cpf).map(PessoaMapper::toDomain);
     }
 
+    @Override
+    public void deletar(Pessoa pessoa) {
+        pessoaJpaRepository.deleteById(pessoa.getId().identificador());
+    }
+
 }

@@ -14,4 +14,5 @@ public interface ClienteRepository {
     Cliente salvar(Cliente cliente);
     Page<Cliente> buscarTodos(Pageable pageable);
     Optional<Cliente> existePessoaId(PessoaId id);
+    void deletar(Cliente cliente);
 }

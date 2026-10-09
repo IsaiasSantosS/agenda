@@ -45,4 +45,9 @@ public class ClienteRepositoryImpl implements ClienteRepository {
         return clienteJpaRepository.findByPessoaId(id.identificador()).map(ClienteMapper::toDomain);
     }
 
+    @Override
+    public void deletar(Cliente cliente) {
+        clienteJpaRepository.deleteById(cliente.getId().identificador());
+    }
+
 }
