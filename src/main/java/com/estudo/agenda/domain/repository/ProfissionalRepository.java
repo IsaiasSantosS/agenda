@@ -14,4 +14,5 @@ public interface ProfissionalRepository {
     Profissional salvar(Profissional profissional);
     Page<Profissional> buscarTodos(Pageable pageable);
     Optional<Profissional> existePessoaId(PessoaId id);
+    void deletar(Profissional profissional);
 }

@@ -16,33 +16,38 @@ import com.estudo.agenda.infrastructure.persistence.mapper.ProfissionalMapper;
 @Repository 
 public class ProfissionalRepositoryImpl implements ProfissionalRepository {
     
-    private final ProfissionalJpaRepository jpaRepository;
+    private final ProfissionalJpaRepository jpaProfissionalRepository;
 
-    public ProfissionalRepositoryImpl(ProfissionalJpaRepository jpaRepository) {
-        this.jpaRepository = jpaRepository;
+    public ProfissionalRepositoryImpl(ProfissionalJpaRepository jpaProfissionalRepository) {
+        this.jpaProfissionalRepository = jpaProfissionalRepository;
     }
 
     @Override 
     public Optional<Profissional> buscarPorId(UUID id) {
-        return jpaRepository.findById(id).map(ProfissionalMapper::toDomain);
+        return jpaProfissionalRepository.findById(id).map(ProfissionalMapper::toDomain);
     }
     
     @Override
     public Profissional salvar(Profissional profissional) {
         ProfissionalEntity ProfissionalEntity = ProfissionalMapper.toEntity(profissional);
-        return ProfissionalMapper.toDomain(jpaRepository.save(ProfissionalEntity));
+        return ProfissionalMapper.toDomain(jpaProfissionalRepository.save(ProfissionalEntity));
     }
 
     @Override 
     public Page<Profissional> buscarTodos(Pageable pageable) {
-        return jpaRepository.findAll(pageable).map(ProfissionalMapper::toDomain);
+        return jpaProfissionalRepository.findAll(pageable).map(ProfissionalMapper::toDomain);
     }
 
     @Override
     public Optional<Profissional> existePessoaId(PessoaId id) {
-        return jpaRepository.findByPessoaId(id.identificador()).map(
+        return jpaProfissionalRepository.findByPessoaId(id.identificador()).map(
             ProfissionalMapper::toDomain
         );
+    }
+
+    @Override
+    public void deletar(Profissional profissional) {
+        jpaProfissionalRepository.delete(ProfissionalMapper.toEntity(profissional));
     }
     
 }
